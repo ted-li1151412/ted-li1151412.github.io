@@ -22,6 +22,22 @@
     font-size: 48px;
     margin-bottom: 50px;
   }
+  .avatar {
+    animation: light 4s ease-in-out infinite;
+    transition: 0.8s;
+    border-radius: 50%;
+    margin-top: 10%;
+    width: 96px;
+    height: 96px;
+    background: url(https://ted-lijunyu.top/icon.svg) center center no-repeat;
+    background-color: #fff;
+  }
+  .avatar:hover { transform: scale(1.2) rotate(360deg); }
+  @keyframes light {
+    0% { box-shadow: 0 0 24px #fd7d7d; }
+    50% { box-shadow: 0 0 8px #fff; }
+    100% { box-shadow: 0 0 24px #fd7d7d; }
+  }
   .buttons {
     display: flex;
     gap: 20px; /* 按钮之间的间距 */
