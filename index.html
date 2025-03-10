@@ -32,7 +32,7 @@
             height: auto;
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 1.5s ease, box-shadow 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 1.5s ease, box-shadow 0.3s ease;
         }
 
         .logo:hover img {
@@ -49,11 +49,10 @@
             margin: 20px 0;
             display: flex;
             justify-content: center;
-            gap: 10px; /* 增加按钮之间的间距 */
         }
 
-        .nav a {
-            text-decoration: none; /* 去掉链接文字的下划线 */
+        .nav button {
+            margin: 0 10px;
             padding: 10px 20px;
             font-size: 16px;
             border: 2px solid #fff; /* 白色边框 */
@@ -62,12 +61,19 @@
             color: #fff; /* 白色文字 */
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            text-decoration: none; /* 去掉按钮文字的下划线 */
         }
 
-        .nav a:hover {
+        .nav button:hover {
             background-color: #fff; /* 白色背景 */
             color: #3E2723; /* 深棕色文字 */
-            transform: scale(1.1); /* 链接放大 */
+            transform: scale(1.1); /* 按钮放大 */
+        }
+
+        .studio {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #fff; /* 白色文字 */
         }
 
         footer {
@@ -87,10 +93,10 @@
             <h1>LJT</h1>
         </div>
         <div class="nav">
-            <a href="blog.ted-lijunyu.top">Blog</a>
-            <a href="https://ted-lijunyu.top/download.html">Download</a>
-            <a href="video.ted-lijunyu.top">Video</a>
-            <a href="https://ted-lijunyu.top/LJTStudio.html">LJT Studio</a>
+            <a href="blog.ted-lijunyu.top"><button>Blog</button></a>
+            <a href="https://ted-lijunyu.top/download.html"><button>Download</button></a>
+            <a href="https://video.ted-lijunyu.top"><button>Video</button></a>
+            <a href="https://ted-lijunyu.top/LJTStudio.html"><button>LJT Studio</button></a>
         </div>
     </div>
     <footer>
