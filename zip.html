@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解压工具</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #333;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.1); }
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+        .file-input {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .file-input label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .file-input input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            color: #333;
+        }
+        .loading {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .icon {
+            font-size: 3em;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <i class="fas fa-unzip icon"></i>
+        <h1>解压工具</h1>
+        <div class="file-input">
+            <label for="file">选择ZIP文件：</label>
+            <input type="file" id="file" accept=".zip">
+        </div>
+        <button id="extractButton">解压并下载</button>
+        <div class="result" id="result">
+            <p>data</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script>
+        document.getElementById('extractButton').addEventListener('click', async () => {
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('请选择一个ZIP文件！');
+                return;
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<p class="loading">正在解压文件...</p>';
+
+            try {
+                // 读取文件
+                const zip = await JSZip.loadAsync(file);
+                const entries = Object.keys(zip.files);
+
+                if (entries.length === 0) {
+                    resultDiv.innerHTML = '<p>ZIP文件为空！</p>';
+                    return;
+                }
+
+                // 遍历文件并下载
+                for (const entry of entries) {
+                    const content = await zip.file(entry).async('blob');
+                    const url = URL.createObjectURL(content);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = entry;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                }
+
+                resultDiv.innerHTML = `<p>解压完成！文件已下载。</p>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<p>解压失败：${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
