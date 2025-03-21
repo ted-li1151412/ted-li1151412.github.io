@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LJT Studio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            display: flex;
+            background-color: #222;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            width: 80%;
+            max-width: 800px;
+            min-width: 600px;
+            border-radius: 10px; /* 圆角边框 */
+            overflow: hidden; /* 隐藏超出部分 */
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background-color: #333;
+            width: 300px;
+        }
+        .sidebar button {
+            background-color: #7FDBFF;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            font-size: 16px;
+            color: white;
+            width: 100%;
+            border-radius: 5px; /* 圆角按钮 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 按钮阴影 */
+            position: relative;
+        }
+        .sidebar button:hover {
+            transform: scale(1.05);
+            background-color: #39CCCC;
+        }
+        .sidebar button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)); /* 渐变效果 */
+            z-index: -1;
+            border-radius: 5px;
+            transform: scale(1.1);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .sidebar button:hover:before {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* 文字阴影 */
+        }
+        .content {
+            padding: 20px;
+            background-color: #444;
+            flex-grow: 1;
+            min-height: 200px;
+            max-width: 400px;
+        }
+        .content p {
+            margin: 0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">LJT Studio</div>
+            <button onclick="showContent('about')">
+                <i class="icon">&#x1F4DC;</i> 关于
+            </button>
+            <button onclick="showContent('works')">
+                <i class="icon">&#x1F3A8;</i> 作品
+            </button>
+            <button onclick="showContent('members')">
+                <i class="icon">&#x1F464;</i> 成员
+            </button>
+            <button onclick="showContent('alliance')">
+                <i class="icon">&#x26D4;</i> 联盟
+            </button>
+            <button onclick="showContent('blog')">
+                <i class="icon">&#x1F4DD;</i> blog
+            </button>
+        </div>
+        <div class="content">
+            <p>这里是LJT Studio</p>
+        </div>
+    </div>
+
+    <script>
+        function showContent(id) {
+            const content = document.querySelector('.content');
+            switch(id) {
+                case 'about':
+                    content.innerHTML = '<p>LJT的工作室</p>';
+                    break;
+                case 'works':
+                    content.innerHTML = '<p>作品：<br>1.Windows 10（仿作版）<br>2.Avain Run<br>3.是真男人就下一百层 2.0.4<br>4.赚钱模拟器<br>5.ball game<br>6.超级小作品：指鼠标针</p>';
+                    break;
+                case 'members':
+                    content.innerHTML = '<p>室长：LJT<br>副室长：朱文睿<br>高级成员：李君玉，张博翀</p>';
+                    break;
+                case 'alliance':
+                    content.innerHTML = '<p>暂无</p>';
+                    break;
+                case 'blog':
+                    content.innerHTML = '<p>ted-lijunyu.top</p>';
+                    break;
+                default:
+                    content.innerHTML = '<p>这里是LJT Studio</p>';
+            }
+        }
+    </script>
+</body>
+</html>
