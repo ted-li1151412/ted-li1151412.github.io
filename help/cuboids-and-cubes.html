@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长方体和正方体计算器帮助文档</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .note {
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>长方体和正方体计算器帮助文档</h1>
+    
+    <div class="section">
+        <h2>功能说明</h2>
+        <p>这是一个简单的C++程序，用于计算长方体和正方体的表面积、体积以及染色问题。程序提供了用户友好的菜单，支持以下功能：</p>
+        <ul>
+            <li>表面积计算</li>
+            <li>体积计算</li>
+            <li>染色问题</li>
+            <li>清屏功能</li>
+            <li>退出程序</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>表面积计算</h2>
+        <p>计算长方体和正方体的表面积。</p>
+        <ul>
+            <li><strong>长方体表面积</strong>：输入长、宽、高，计算公式为 \(2(ab + ah + bh)\)。</li>
+            <li><strong>正方体表面积</strong>：输入边长，计算公式为 \(6n^2\)。</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>体积计算</h2>
+        <p>计算长方体和正方体的体积。</p>
+        <ul>
+            <li><strong>长方体体积</strong>：输入长、宽、高，计算公式为 \(abh\)。</li>
+            <li><strong>正方体体积</strong>：输入边长，计算公式为 \(n^3\)。</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>染色问题</h2>
+        <p>假设有一个大正方体，被切成 \(n \times n \times n\) 的小正方体，然后对大正方体的表面进行涂色：</p>
+        <ul>
+            <li><strong>三面涂色</strong>：8个角的小正方体。</li>
+            <li><strong>两面涂色</strong>：每条棱上除去角的小正方体，共有 \(12(n - 2)\) 个。</li>
+            <li><strong>一面涂色</strong>：每个面上除去棱的小正方体，共有 \(6(n - 2)^2\) 个。</li>
+            <li><strong>没有涂色</strong>：内部的小正方体，共有 \((n - 2)^3\) 个。</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>使用方法</h2>
+        <h3>编译程序</h3>
+        <p>使用支持C++11或更高版本的编译器，例如 <code>g++</code>。</p>
+        <p>编译命令：<code>g++ -o cube_calculator main.cpp</code></p>
+        
+        <h3>运行程序</h3>
+        <p>在命令行中运行：</p>
+        <ul>
+            <li>Linux/macOS: <code>./cube_calculator</code></li>
+            <li>Windows: <code>cube_calculator.exe</code></li>
+        </ul>
+        
+        <h3>操作指南</h3>
+        <p>根据菜单提示选择功能，输入相应的参数（如长、宽、高或边长），按下 <code>X</code> 键清屏并返回菜单，选择退出程序时，程序将安全退出。</p>
+    </div>
+
+    <div class="section">
+        <h2>示例</h2>
+        <h3>计算长方体表面积</h3>
+        <div class="example">
+            <pre>
+欢迎使用长方体和正方体
+1.表面积
+2.体积
+3.染色问题
+4.清屏
+5.退出
+1
+长方体，正方体？(1: 长方体, 2: 正方体)
+1
+长、宽、高？
+3 4 5
+长方体表面积：94
+按下X键继续...
+</pre>
+        </div>
+
+        <h3>计算正方体体积</h3>
+        <div class="example">
+            <pre>
+欢迎使用长方体和正方体
+1.表面积
+2.体积
+3.染色问题
+4.清屏
+5.退出
+2
+长方体，正方体？(1: 长方体, 2: 正方体)
+2
+边长？
+4
+正方体体积：64
+按下X键继续...
+</pre>
+        </div>
+
+        <h3>染色问题</h3>
+        <div class="example">
+            <pre>
+欢迎使用长方体和正方体
+1.表面积
+2.体积
+3.染色问题
+4.清屏
+5.退出
+3
+边长？
+5
+三面涂色个数：8
+两面涂色个数：36
+一面涂色个数：54
+没有面涂色个数：27
+按下X键继续...
+</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>注意事项</h2>
+        <ul>
+            <li>确保输入的数字是有效的，避免输入非数字字符。</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>作者</h2>
+        <ul>
+            <li><strong>作者</strong>：LJT</li>
+            <li><strong>邮箱</strong>：ted-lijunyu@ted-lijunyu.top</li>
+            <li><strong>GitHub</strong>：github.com/ted-li-git</li>
+        </ul>
+    </div>
+</body>
+</html>
