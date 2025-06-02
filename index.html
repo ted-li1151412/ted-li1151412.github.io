@@ -81,6 +81,23 @@
             bottom: 10px;
             font-size: 12px;
             color: #fff; /* 白色文字 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .footer-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-text p,
+        .footer-text a {
+            margin: 0 5px;
+            color: #fff; /* 白色文字 */
+            text-decoration: none; /* 去掉链接文字的下划线 */
         }
     </style>
 </head>
@@ -106,7 +123,11 @@
         </div>
     </div>
     <footer>
-        <p>Copyright © LJT</p><a href="https://icp.gov.moe/?keyword=20250604" target="_blank" style="text-decoration: none; color: white; background-color: #4A2F2F; padding: 10px 20px; border-radius: 5px; font-family: Arial, sans-serif; font-size: 16px; transition: background-color 0.3s ease;">萌ICP备20250604号</a>
+        <div class="footer-text">
+            <p>Copyright © LJT</p>
+            <span>·</span>
+            <a href="https://icp.gov.moe/?keyword=20250604" target="_blank">萌ICP备20250604号</a>
+        </div>
     </footer>
 </body>
 </html>
