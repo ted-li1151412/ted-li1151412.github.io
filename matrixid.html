@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成matrixid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>生成matrixid</h1>
+    <button id="generateBtn">立即生成</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function () {
+            const characters = 'matrixid';
+            let result = '';
+            const length = 12; // 生成的字符串长度，你可以根据需要修改这个值
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                result += characters[randomIndex];
+            }
+            document.getElementById('result').innerText = result;
+        });
+    </script>
+</body>
+</html>
