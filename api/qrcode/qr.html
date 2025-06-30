@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .qr-code {
+            margin-top: 20px;
+        }
+        .download-link {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code API</h1>
+        <p>Use the following URL to generate a QR code:</p>
+        <p><code>http://yourdomain.com/qr.html?link=YOUR_LINK_HERE</code></p>
+        <div id="qrCode"></div>
+        <div id="downloadLink"></div>
+    </div>
+
+    <!-- Include the qrcode.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.min.js"></script>
+    <script>
+        // Get the link from the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const link = urlParams.get('link');
+
+        if (link) {
+            const qrCodeDiv = document.getElementById('qrCode');
+            const downloadLinkDiv = document.getElementById('downloadLink');
+
+            // Create a new QR Code
+            const qr = new QRCode(qrCodeDiv, {
+                text: link,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Create a download link
+            const canvas = qrCodeDiv.getElementsByTagName('canvas')[0];
+            const imgData = canvas.toDataURL('image/png');
+            const linkElement = document.createElement('a');
+            linkElement.href = imgData;
+            linkElement.download = 'qr_code.png';
+            linkElement.innerHTML = 'Download QR Code';
+            downloadLinkDiv.innerHTML = '';
+            downloadLinkDiv.appendChild(linkElement);
+        } else {
+            document.getElementById('qrCode').innerText = 'No link provided.';
+        }
+    </script>
+</body>
+</html>

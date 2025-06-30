@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <h1>Generate QR Code</h1>
+    <p>Enter a link to generate a QR code:</p>
+    <input type="text" id="linkInput" placeholder="Enter link here">
+    <button onclick="generateQRCode()">Generate</button>
+    <br><br>
+    <img id="qrCodeImage" src="" alt="QR Code" style="max-width: 200px; max-height: 200px;">
+
+    <script>
+        function generateQRCode() {
+            const link = document.getElementById('linkInput').value;
+            const qrCodeUrl = `http://yourdomain.com/qr.html?link=${encodeURIComponent(link)}`;
+            document.getElementById('qrCodeImage').src = qrCodeUrl;
+        }
+    </script>
+</body>
+</html>
