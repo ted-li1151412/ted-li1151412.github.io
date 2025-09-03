@@ -11,12 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 点击导航链接关闭移动端菜单
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
+navLinks.forEach(link => {
+    if (link.classList.contains('nav-external')) return; // 跳过外部链接
+    
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        ...
     });
+});
 
     // 导航栏滚动效果
     const navbar = document.querySelector('.navbar');
