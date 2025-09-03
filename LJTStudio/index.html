@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LJTStudio - 新一代科技工作室</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">LJTStudio</span>
+                <span class="logo-dot"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">首页</a></li>
+                <li><a href="#about" class="nav-link">关于我们</a></li>
+                <li><a href="#services" class="nav-link">服务</a></li>
+                <li><a href="#projects" class="nav-link">项目</a></li>
+		<li><a href="projects.html" class="nav-link">项目展示页</a></li>
+                <li><a href="#contact" class="nav-link">联系</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页部分 -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    创新科技
+                    <span class="gradient-text">驱动未来</span>
+                </h1>
+                <p class="hero-description">
+                    LJTStudio 致力于技术研发，用创新解决方案推动数字化转型，
+                    为个人提供卓越的科技服务。
+                </p>
+                <div class="hero-buttons">
+                    <button onclick="location.href='https://ted-lijunyu.top/LJTStudio'" class="btn btn-primary">开始探索</button>
+		    <button onclick="location.href='https://ted-lijunyu.top/LJTStudio/more.html'" class="btn btn-secondary">了解更多</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <i class="fas fa-desktop"></i>
+                    <span>桌面开发</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-code"></i>
+                    <span>Web</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-robot"></i>
+                    <span>AI</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>关于 LJTStudio</h2>
+                <p>我们是一支由中小学生自发组成的团队</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>我们的使命</h3>
+                    <p>通过技术创新解决复杂问题，为用户创造价值。我们相信技术的力量可以改变世界，致力于将最前沿的技术转化为实用的解决方案。</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">完成项目</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">满意客户</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1+</span>
+                            <span class="stat-label">年经验</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="tech-grid">
+                        <div class="tech-item">C++</div>
+                        <div class="tech-item">Python</div>
+                        <div class="tech-item">C#</div>
+                        <div class="tech-item">AI</div>
+                        <div class="tech-item">HTML/CSS/JS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务 -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>我们的服务</h2>
+                <p>全方位的技术解决方案</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>桌面开发</h3>
+                    <p>现代化桌面应用开发</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Web</h3>
+                    <p>生成现代化网站，无偿帮助搭建个人博客，个人论坛...</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>AI</h3>
+                    <p>AI开发</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>精选项目</h2>
+                <p>展示我们的技术实力</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fal fa-image"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>WordPress主题-Wex</h3>
+                        <p>WordPress的项目展示类主题</p>
+                        <div class="project-tech">
+                            <span>PHP</span>
+                            <span>HTML/CSS/JS</span>
+                            <span>WordPress</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>24点游戏</h3>
+                        <p>24点游戏，可更改难度</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fal fa-file-word"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>LifeSimulator</h3>
+                        <p>持续更新的文字版游戏</p>
+                        <div class="project-tech">
+                            <span>C++</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>联系我们</h2>
+                <p>让我们一起创造 amazing 的项目</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>邮箱</h4>
+                            <p>室长：ted-lijunyu@foxmail.com 招贤纳士：i@ted-lijunyu.top</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>电话</h4>
+                            <p>+86 193 3461 7976</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>地址</h4>
+                            <p>北京市东城区灯市口大街</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="您的邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="您的消息" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LJTStudio</h3>
+                    <p>科技创新，驱动未来</p>
+                </div>
+                <div class="footer-section">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="#services">Web</a></li>
+                        <li><a href="#services">桌面应用</a></li>
+                        <li><a href="#services">AI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>i@ted-lijunyu.top</li>
+                        <li>+86 193 3461 7976</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LJTStudio. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
