@@ -12,11 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 点击导航链接关闭移动端菜单
 navLinks.forEach(link => {
-    if (link.classList.contains('nav-external')) return; // 跳过外部链接
-    
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        ...
+    link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+
+        // 如果是外部链接或以 http 开头，就不拦截
+        if (this.classList.contains('nav-external') || href.startsWith('http') || !href.startsWith('#')) {
+            return; // 允许浏览器默认跳转
+        }
+
+        e.preventDefault(); // 只有锚点才拦截
+        const targetSection = document.querySelector(href);
+        if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 70;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
     });
 });
 
