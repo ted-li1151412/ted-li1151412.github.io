@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR码生成API</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="url"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .generate-btn {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .generate-btn:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .qrcode {
+            max-width: 300px;
+            margin: 20px auto;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .qrcode img {
+            width: 100%;
+            height: auto;
+        }
+        .api-url {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            word-break: break-all;
+            margin-top: 10px;
+        }
+        .copy-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .copy-btn:hover {
+            background: #1e7e34;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR码生成API</h1>
+        
+        <div class="input-group">
+            <label for="urlInput">输入链接：</label>
+            <input type="url" id="urlInput" placeholder="https://yourdomain.com" required>
+        </div>
+        
+        <button class="generate-btn" onclick="generateQRCode()">生成QR码</button>
+        
+        <div id="result" class="result hidden">
+            <h3>生成的QR码：</h3>
+            <div id="qrcode" class="qrcode"></div>
+            <div class="api-url" id="apiUrl"></div>
+            <button class="copy-btn" onclick="copyAPIUrl()">复制API链接</button>
+        </div>
+    </div>
+
+    <script>
+        function generateQRCode() {
+            const urlInput = document.getElementById('urlInput');
+            const url = urlInput.value.trim();
+            
+            if (!url) {
+                alert('请输入有效的链接！');
+                return;
+            }
+            
+            if (!isValidUrl(url)) {
+                alert('请输入有效的URL格式！');
+                return;
+            }
+            
+            const apiUrl = `https://ted-lijunyu.top/api/qrcode/qr-link=${encodeURIComponent(url)}`;
+            const resultDiv = document.getElementById('result');
+            const qrcodeDiv = document.getElementById('qrcode');
+            const apiUrlDiv = document.getElementById('apiUrl');
+            
+            // 显示QR码
+            qrcodeDiv.innerHTML = `<img src="${apiUrl}" alt="QR Code">`;
+            apiUrlDiv.textContent = apiUrl;
+            
+            // 显示结果
+            resultDiv.classList.remove('hidden');
+        }
+        
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
+            }
+        }
+        
+        function copyAPIUrl() {
+            const apiUrlDiv = document.getElementById('apiUrl');
+            const text = apiUrlDiv.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('API链接已复制到剪贴板！');
+            }).catch(() => {
+                // 备用复制方法
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('API链接已复制到剪贴板！');
+            });
+        }
+        
+        // 支持回车键生成
+        document.getElementById('urlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateQRCode();
+            }
+        });
+    </script>
+</body>
+</html>
